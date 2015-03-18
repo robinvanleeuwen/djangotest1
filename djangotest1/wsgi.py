@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dynamic_models1.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "djangotest1.settings")
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

@@ -1,5 +1,5 @@
 """
-Django settings for dynamic_models1 project.
+Django settings for djangotest1 project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -50,9 +50,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'dynamic_models1.urls'
+ROOT_URLCONF = 'djangotest1.urls'
 
-WSGI_APPLICATION = 'dynamic_models1.wsgi.application'
+WSGI_APPLICATION = 'djangotest1.wsgi.application'
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # Database
