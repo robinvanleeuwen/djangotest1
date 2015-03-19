@@ -1,27 +1,15 @@
-from django.forms import ModelForm
-from django.shortcuts import redirect, render
-from app.models import Recipient
+from django import forms
+from .models import Recipe, RecipeIngredient
+from django.forms.models import inlineformset_factory, ModelChoiceField
 
+MAX_INGREDIENTS = 20
 
-class RecipientForm(ModelForm):
+IngredientFormSet = inlineformset_factory(Recipe,
+    RecipeIngredient,
+    can_delete=False,
+    extra=MAX_INGREDIENTS)
 
+class UserSubmittedRecipeForm(forms.ModelForm):
     class Meta:
-        model = Recipient
-        fields = ["name1", "name2", "street","zip", "country", "phone1"]
-
-
-
-def save_recipient():
-    import sys
-    print sys.stdout, "Saving Recipient data"
-
-
-def get_recipient(request, template_name="recipient.html"):
-
-    form = RecipientForm(request.POST or None)
-    if form.is_valid():
-
-        save_recipient()
-        return redirect("recipient.html")
-
-    return render(request, template_name, {'form': form})
+        model = Recipe
+        exclude = ('pub_date', )

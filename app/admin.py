@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from app.models import Customer, Recipient, CountryCodes
+from app.models import Recipe, RecipeIngredient
 
-admin.site.register(Customer)
-admin.site.register(Recipient)
-admin.site.register(CountryCodes)
+admin.site.register(Recipe)
+admin.site.register(RecipeIngredient)

@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r"^admin/", include(admin.site.urls)),
-    url(r"^recipient/", "app.forms.get_recipient", name="get_recipient")
+    url(r"^recipe/", "app.views.submit_recipe", name="get_recipient")
+
 
 )
