@@ -2,7 +2,7 @@ from django.db import models
 
 class Country(models.Model):
     country = models.CharField(max_length=255)
-    langauge = models.CharField(max_length=3)
+    language = models.CharField(max_length=3)
 
     def __unicode__(self):
         return u'{0}'.format(self.country)
