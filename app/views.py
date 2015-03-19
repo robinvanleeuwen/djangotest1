@@ -1,25 +1,25 @@
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from django.core.urlresolvers import reverse
-from .models import Recipe, RecipeIngredient
-from .forms import UserSubmittedRecipeForm, IngredientFormSet
+from app.models import Client
+from .forms import UserSubmittedClientForm, ClientFormSet
 
-def submit_recipe(request):
+
+def submit_client(request):
     if request.POST:
 
-        form = UserSubmittedRecipeForm(request.POST)
+        form = UserSubmittedClientForm(request.POST)
         if form.is_valid():
-            recipe = form.save(commit=False)
-            ingredient_formset = IngredientFormSet(request.POST, instance=recipe)
-            if ingredient_formset.is_valid():
-                recipe.save()
-                ingredient_formset.save()
+            client = form.save(commit=False)
+            client_formset = ClientFormSet(request.POST, instance=client)
+            if client_formset.is_valid():
+                client.save()
+                client_formset.save()
                 return HttpResponseRedirect("recipient.html")
     else:
-        form = UserSubmittedRecipeForm()
-        ingredient_formset = IngredientFormSet(instance=Recipe())
+        form = UserSubmittedClientForm()
+        client_formset = ClientFormSet(instance=Client())
     return render_to_response("recipient.html", {
         "form": form,
-        "ingredient_formset": ingredient_formset,
+        "client_formset": client_formset,
     }, context_instance=RequestContext(request))

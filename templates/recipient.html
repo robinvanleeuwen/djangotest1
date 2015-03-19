@@ -2,7 +2,8 @@
     {% csrf_token %}
     <table>
       {{ form.as_table }}
-      {{ ingredient_formset.as_table }}
+    </table>
+    <table>
       <tr>
         <th></th>
         <td><input type="submit" name="submit" value="Submit" class="button"></td>
