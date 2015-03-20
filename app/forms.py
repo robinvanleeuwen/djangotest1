@@ -7,11 +7,13 @@ MAX_INGREDIENTS = 20
 ClientFormSet = inlineformset_factory(Country,
     Client,
     can_delete=False,
-    extra=3)
+    extra=3,
+    exclude=[()])
 
 class UserSubmittedClientForm(forms.ModelForm):
 
     class Meta:
         model = Client
+        exclude = [("country")]
 
     country = forms.ModelChoiceField(queryset=Country.objects.all(), initial=Country.objects.all().filter(country="NL"))

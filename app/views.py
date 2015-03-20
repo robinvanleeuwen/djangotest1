@@ -13,13 +13,15 @@ def submit_client(request):
             client = form.save(commit=False)
             client_formset = ClientFormSet(request.POST, instance=client)
             if client_formset.is_valid():
+                print "valid data"
                 client.save()
                 client_formset.save()
-                return HttpResponseRedirect("recipient.html")
+            return HttpResponseRedirect("recipient.html")
     else:
         form = UserSubmittedClientForm()
         client_formset = ClientFormSet(instance=Client())
+
     return render_to_response("recipient.html", {
-        "form": form,
-        "client_formset": client_formset,
-    }, context_instance=RequestContext(request))
+          "form": form,
+          "client_formset": client_formset,
+        }, context_instance=RequestContext(request))

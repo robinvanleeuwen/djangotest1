@@ -8,6 +8,7 @@ class Country(models.Model):
         return u'{0}'.format(self.country)
 
 class AddressInformation(models.Model):
+
     class Meta:
         abstract = True
 
@@ -19,7 +20,16 @@ class AddressInformation(models.Model):
     country = models.ForeignKey(Country, unique=True)
 
 
+class ContactInformation(models.Model):
 
-class Client(AddressInformation):
+    class Meta:
+        abstract = True
+
+    email = models.EmailField(max_length=255, default="")
+    phone1 = models.CharField(max_length=255, default="")
+    phone2 = models.CharField(max_length=255, default="")
+
+
+class Client(AddressInformation, ContactInformation):
 
     client_number = models.IntegerField()

@@ -1,0 +1,32 @@
+a.selected {
+    background-color: #12345;
+    color: black;
+    z-index: 100;
+}
+
+.housenumberpopup {
+    background-color: #FFFFFF;
+    border: 1px solid;
+    cursor: default;
+    display: none;
+    margin-top: 15px;
+    position: absolute;
+    text-align: left;
+    width: 300px;
+    z-index: 50;
+    padding: 25px 25px 20px;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    text-indent: -15px;
+
+}
+
+.housenumberpopup p, .housenumberpopup.div {
+    border-bottom: 1px solid;
+
+}
