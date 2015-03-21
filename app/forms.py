@@ -1,19 +1,21 @@
 from django import forms
 from .models import Client, Country
-from django.forms.models import inlineformset_factory, ModelChoiceField
+from django.forms.models import inlineformset_factory, ModelForm
 
-MAX_INGREDIENTS = 20
 
-ClientFormSet = inlineformset_factory(Country,
-    Client,
-    can_delete=False,
-    extra=3,
-    exclude=[()])
+class CountryForm(ModelForm):
+    class Meta:
+        model = Country
+        exclude = [()]
 
-class UserSubmittedClientForm(forms.ModelForm):
+
+class ClientForm(ModelForm):
 
     class Meta:
         model = Client
-        exclude = [("country")]
+        exclude = [()]
 
-    country = forms.ModelChoiceField(queryset=Country.objects.all(), initial=Country.objects.all().filter(country="NL"))
+    country = forms.ModelChoiceField(queryset=Country.objects.all(),
+                                     initial=Country.objects.all().filter(country="NL"))
+
+
