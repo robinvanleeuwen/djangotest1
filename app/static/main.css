@@ -1,0 +1,2 @@
+/* Disable the JQuery-UI Accesibility Lines */
+.ui-helper-hidden-accessible { display:none; }

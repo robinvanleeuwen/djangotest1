@@ -14,6 +14,7 @@ class ClientForm(ModelForm):
     class Meta:
         model = Client
         exclude = [()]
+    client_number = forms.CharField(widget=forms.TextInput(attrs={"size": 40}))
     name1 = forms.CharField(widget=forms.TextInput(attrs={"size":40}))
     name2 = forms.CharField(widget=forms.TextInput(attrs={"size":40}))
     street = forms.CharField(widget=forms.TextInput(attrs={"size":40}))
