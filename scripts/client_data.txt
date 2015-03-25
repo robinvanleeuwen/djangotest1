@@ -1,0 +1,13 @@
+id,name1,name2,street,zip,city,client_number,country,email,phone1,phone2
+0,'naam1','naam2','straat','postcode','stad',1,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',2,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',3,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',4,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',5,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',6,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',7,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',8,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',9,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',10,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',11,1,'email@adres.nl','02012345678','0612345678'
+0,'naam1','naam2','straat','postcode','stad',12,1,'email@adres.nl','02012345678','0612345678'

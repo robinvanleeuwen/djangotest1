@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
+
+    <script src="{% static "client.js" %}"></script>
+
     <form action="." method="post" class="recipe_form">
-        {{ crsf_token }}
+        {{ csrf_token }}
 
         <div class="client">
             <table>
@@ -19,4 +23,5 @@
             </table>
         </div>
       </form>
+
 {%  endblock %}

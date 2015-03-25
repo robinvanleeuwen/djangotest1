@@ -1,13 +1,26 @@
+from time import timezone
 from django.core import serializers
 from django.core.context_processors import csrf
 import json
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import render_to_response, redirect, render, get_object_or_404
+from django.views.generic import ListView
 from app.forms import ClientForm, CountryForm
 from app.models import Client, Country
 
 
+class ClientView(ListView):
+    template_name = "client_list.html"
+    model = Client
+
+
 def manage_client(request, id_client=None):
+    """
+    Add/Edit client database entries
+    :param request:
+    :param id_client:
+    :return: rendered form
+    """
     if request.POST:
         form = ClientForm(request.POST)
         if form.is_valid():
@@ -17,36 +30,7 @@ def manage_client(request, id_client=None):
         form = ClientForm()
 
     args = {}
-    args.update(csrf(request))
     args['form'] = form
     return render_to_response('recipient.html', args)
 
-
-def search_client(request):
-
-    if request.method == "POST":
-        search_text = request.POST["search_text"]
-    else:
-        search_text = ""
-
-    clients = Client.objects.filter(client_number__contains=search_text)
-    args = {}
-    args.update(csrf(request))
-    args["clients"] = clients
-    return render_to_response("ajax_search.html", args)
-
-
-def test_ajax(request):
-    data = []
-    if request.is_ajax():
-        q = request.GET.get('term','')
-        clients = Client.objects.filter(client_number__contains = q)[:20]
-        for c in clients:
-
-            data.append(unicode(c.client_number))
-
-
-    data = json.dumps(data)
-    print data
-    return HttpResponse(data, content_type="application/json")
 
