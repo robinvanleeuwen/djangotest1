@@ -11,9 +11,8 @@ def search_client(request, method):
     :return: HTTPResponse conaining JSON object with list of matching clients
     """
     data = []
-    if request.is_ajax() or True:
+    if request.is_ajax():
         q = request.GET.get('term','')
-        print q
         kwargs = {"{0}__contains".format(method): q,}
         print kwargs
         clients = Client.objects.filter(**kwargs)[:20]
